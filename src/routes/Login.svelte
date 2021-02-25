@@ -20,9 +20,7 @@
   <title>Gunpla Reader</title>
 </svelte:head>
 
-<div
-  class="w-screen h-screen py-10 sm:px-2 flex flex col justify-center relative"
->
+<div class="w-screen h-screen py-10 sm:px-2 flex flex col justify-center mt-80">
   <form on:submit={handleSubmit} class="md:w-1/4 w-5/6">
     <img
       class="mx-auto mb-4 h-36 w-auto"
