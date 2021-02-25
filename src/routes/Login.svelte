@@ -21,10 +21,15 @@
 </svelte:head>
 
 <div
-  class="w-screen h-screen py-5 sm:px-2 flex flex col justify-start relative h-32 w-32"
+  class="w-screen h-screen py-10 sm:px-2 flex flex col justify-center relative"
 >
   <form on:submit={handleSubmit} class="md:w-1/4 w-5/6">
-    <div class="w-full mb-6">
+    <img
+      class="mx-auto mb-4 h-36 w-auto"
+      src="/gunplaicon.png"
+      alt="Gunpla Reader Logo"
+    />
+    <div class="w-full mb-4">
       <label for="email" class="cursor-pointer py-2">Email</label>
       <input
         id="email"
