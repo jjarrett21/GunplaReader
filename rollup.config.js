@@ -4,7 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
-
+import sveltePreProcess from 'svelte-preprocess';
 const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
@@ -28,6 +28,17 @@ function serve() {
 	};
 }
 
+const preprocess = sveltePreProcess({
+	sourceMap: !production,
+	postcss: {
+		plugins: [
+			require('tailwindcss'),
+			require('autoprefixer'),
+			require('postcss-nesting'),
+		],
+	},
+});
+
 export default {
 	input: 'src/main.js',
 	output: {
@@ -41,7 +52,8 @@ export default {
 			compilerOptions: {
 				// enable run-time checks when not in production
 				dev: !production
-			}
+			},
+			preprocess,
 		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance

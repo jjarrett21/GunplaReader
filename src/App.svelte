@@ -1,30 +1,29 @@
 <script>
-	export let heading;
+  import Router from 'svelte-spa-router';
+  import Login from './routes/Login.svelte';
+
+  const routes = {
+    '/': Login,
+  };
 </script>
 
-<main>
-	<h1>{heading}</h1>
-	<!-- <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p> -->
-</main>
+<Router {routes} />
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+<style global lang="postcss">
+  /* purgecss start ignore */
+  @tailwind base;
+  @tailwind components;
+  /* purgecss end ignore */
+  @tailwind utilities;
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
+  body {
+    /* background-image: linear-gradient(224deg, #adadad 0%, #21232e 100%); */
+    background-color: #21232e;
+    color: whitesmoke;
+    padding: 0;
+  }
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  :global(a.active) {
+    color: '#b1b2b3' !important;
+  }
 </style>
